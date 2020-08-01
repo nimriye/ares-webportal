@@ -44,6 +44,8 @@
       <LinkTo @route="event" @model={{notification.reference_id}}>View</LinkTo>
     {{else if (eq notification.type 'achievement')}}
       <LinkTo @route="char" @model={{currentUser.id}}>View</LinkTo>
+    {{else if (eq notification.type 'visions')}}
+      <LinkTo @route="char" @model={{currentUser.id}}>View</LinkTo>
     {{/if}}
   </td>
 </tr>

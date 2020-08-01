@@ -1,6 +1,9 @@
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#scenesindex">+</a></li>
     <li><a data-toggle="tab" href="#scenelist">Scenes</a></li>
+  {{#if char.visions}}
+    <li><a data-toggle="tab" href="#scenesvisions">Visions</a></li>
+  {{/if}}
 </ul>
 
 
@@ -15,5 +18,15 @@
         <SceneList @scenes={{scenes.scenes}} @pages={{scenes.pages}} @sceneTypes={{sceneTypes}} @filter={{filter}} @page={{page}} @filterChanged={{action "filterChanged"}} @goToPage={{action "goToPage"}} />
       
     </div>
-    
+
+    {{#if char.visions}}
+    <div id="scenesvisions" class="tab-pane fade ">
+        {{#each char.visions as |vision|}}
+        <h3>{{{ansi-format text=vision.date}}} - {{{ansi-format text=vision.name}}}</h3>
+          {{{ansi-format text=vision.desc}}}
+        {{/each}}
+        <blockquote>Only the most recent 10 visions are shown. For older visions, check your `visions` list on-game.</blockquote>
+    </div>
+    {{/if}}
+
 </div>
