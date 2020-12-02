@@ -5,10 +5,18 @@
     <li><a data-toggle="tab" href="#rosternotes">Roster Info</a></li>
   {{/if}}
   
-  <li><a data-toggle="tab" href="#systemhooks">RP Hooks</a></li>
+  {{#if char.is_npc}}
+    <li><a data-toggle="tab" href="#systemhooks">GM Annotations</a></li>
+  {{else}}
+    <li><a data-toggle="tab" href="#systemhooks">RP Hooks</a></li>
+  {{/if}}
 
   {{#if char.background}}
-      <li><a data-toggle="tab" href="#systembg">Background</a></li> 
+    {{#if char.is_npc}}
+      <li><a data-toggle="tab" href="#systembg">Known Backstory</a></li>
+    {{else}}
+      <li><a data-toggle="tab" href="#systembg">Background</a></li>
+    {{/if}}
   {{/if}}
   
   {{#if char.description}}
